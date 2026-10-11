@@ -1114,9 +1114,23 @@ function dbg(text) {
 // === Body ===
 
 var ASM_CONSTS = {
-  5385944: ($0) => { if (Module.onGameError) { Module.onGameError(UTF8ToString($0)); } },  
- 5386014: ($0) => { if (Module.onGameProgress) { Module.onGameProgress($0); } },  
- 5386076: () => { if (Module.onGameReady) { Module.onGameReady(); } }
+  5387144: () => { if (window.FSAudio) { FSAudio.loop('tool', '', 0, 0); } },  
+ 5387204: ($0, $1) => { if (window.FSAudio) { FSAudio.loop('tool', UTF8ToString($0), $1, 0.7); } },  
+ 5387281: ($0) => { if (Module.onGameError) { Module.onGameError(UTF8ToString($0)); } },  
+ 5387351: ($0) => { if (Module.onGameProgress) { Module.onGameProgress($0); } },  
+ 5387413: ($0, $1, $2, $3, $4) => { if (window.FSAudio) { FSAudio.playMaterial(UTF8ToString($0), UTF8ToString($1), $2, $3, $4); } },  
+ 5387511: ($0, $1) => { if (window.FSAudio) { FSAudio.playBase(UTF8ToString($0), $1); } },  
+ 5387579: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, $2); } },  
+ 5387657: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobeattached', $0, 1.0); } },  
+ 5387742: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombattached', $0, 1.0); } },  
+ 5387819: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobedetached', $0, 1.0); } },  
+ 5387904: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombdetached', $0, 1.0); } },  
+ 5387981: ($0, $1) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, 1.0); } },  
+ 5388060: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('rcbombping', $0, 0.7); } },  
+ 5388135: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('combustionexplosion', $0, 1.0); } },  
+ 5388219: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 1, 0.5); } },  
+ 5388286: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 0, 0); } },  
+ 5388351: () => { if (Module.onGameReady) { Module.onGameReady(); } }
 };
 
 
@@ -8020,6 +8034,8 @@ var wasmImports = {
   /** @export */
   invoke_iii: invoke_iii,
   /** @export */
+  invoke_iiif: invoke_iiif,
+  /** @export */
   invoke_iiififi: invoke_iiififi,
   /** @export */
   invoke_iiii: invoke_iiii,
@@ -8110,7 +8126,13 @@ var wasmImports = {
   /** @export */
   invoke_viifi: invoke_viifi,
   /** @export */
+  invoke_viifif: invoke_viifif,
+  /** @export */
+  invoke_viifj: invoke_viifj,
+  /** @export */
   invoke_viii: invoke_viii,
+  /** @export */
+  invoke_viiif: invoke_viiif,
   /** @export */
   invoke_viiiff: invoke_viiiff,
   /** @export */
@@ -8161,6 +8183,19 @@ var wasmImports = {
 var wasmExports = createWasm();
 var ___wasm_call_ctors = createExportWrapper('__wasm_call_ctors');
 var _fs_load_ship = Module['_fs_load_ship'] = createExportWrapper('fs_load_ship');
+var _fs_set_tool = Module['_fs_set_tool'] = createExportWrapper('fs_set_tool');
+var _fs_set_paused = Module['_fs_set_paused'] = createExportWrapper('fs_set_paused');
+var _fs_is_paused = Module['_fs_is_paused'] = createExportWrapper('fs_is_paused');
+var _fs_step = Module['_fs_step'] = createExportWrapper('fs_step');
+var _fs_zoom = Module['_fs_zoom'] = createExportWrapper('fs_zoom');
+var _fs_reset_view = Module['_fs_reset_view'] = createExportWrapper('fs_reset_view');
+var _fs_focus_on_ships = Module['_fs_focus_on_ships'] = createExportWrapper('fs_focus_on_ships');
+var _fs_toggle_day_night = Module['_fs_toggle_day_night'] = createExportWrapper('fs_toggle_day_night');
+var _fs_detonate_rc_bombs = Module['_fs_detonate_rc_bombs'] = createExportWrapper('fs_detonate_rc_bombs');
+var _fs_detonate_anti_matter_bombs = Module['_fs_detonate_anti_matter_bombs'] = createExportWrapper('fs_detonate_anti_matter_bombs');
+var _fs_remove_all_pins = Module['_fs_remove_all_pins'] = createExportWrapper('fs_remove_all_pins');
+var _fs_set_status_text = Module['_fs_set_status_text'] = createExportWrapper('fs_set_status_text');
+var _fs_set_shift = Module['_fs_set_shift'] = createExportWrapper('fs_set_shift');
 var ___cxa_free_exception = createExportWrapper('__cxa_free_exception');
 var _main = Module['_main'] = createExportWrapper('main');
 var _free = Module['_free'] = createExportWrapper('free');
@@ -8182,6 +8217,7 @@ var ___cxa_increment_exception_refcount = createExportWrapper('__cxa_increment_e
 var ___get_exception_message = Module['___get_exception_message'] = createExportWrapper('__get_exception_message');
 var ___cxa_can_catch = createExportWrapper('__cxa_can_catch');
 var ___cxa_is_pointer_type = createExportWrapper('__cxa_is_pointer_type');
+var dynCall_j = Module['dynCall_j'] = createExportWrapper('dynCall_j');
 var dynCall_iij = Module['dynCall_iij'] = createExportWrapper('dynCall_iij');
 var dynCall_iiijf = Module['dynCall_iiijf'] = createExportWrapper('dynCall_iiijf');
 var dynCall_viifj = Module['dynCall_viifj'] = createExportWrapper('dynCall_viifj');
@@ -8194,12 +8230,22 @@ var dynCall_vijfii = Module['dynCall_vijfii'] = createExportWrapper('dynCall_vij
 var dynCall_vijfiiiffii = Module['dynCall_vijfiiiffii'] = createExportWrapper('dynCall_vijfiiiffii');
 var dynCall_iiji = Module['dynCall_iiji'] = createExportWrapper('dynCall_iiji');
 var dynCall_jiji = Module['dynCall_jiji'] = createExportWrapper('dynCall_jiji');
-var dynCall_j = Module['dynCall_j'] = createExportWrapper('dynCall_j');
 var dynCall_viijii = Module['dynCall_viijii'] = createExportWrapper('dynCall_viijii');
 var dynCall_iiiiij = Module['dynCall_iiiiij'] = createExportWrapper('dynCall_iiiiij');
 var dynCall_jiiii = Module['dynCall_jiiii'] = createExportWrapper('dynCall_jiiii');
 var dynCall_iiiiijj = Module['dynCall_iiiiijj'] = createExportWrapper('dynCall_iiiiijj');
 var dynCall_iiiiiijj = Module['dynCall_iiiiiijj'] = createExportWrapper('dynCall_iiiiiijj');
+
+function invoke_v(index) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)();
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
 
 function invoke_iiii(index,a1,a2,a3) {
   var sp = stackSave();
@@ -8245,10 +8291,21 @@ function invoke_iii(index,a1,a2) {
   }
 }
 
-function invoke_v(index) {
+function invoke_vii(index,a1,a2) {
   var sp = stackSave();
   try {
-    getWasmTableEntry(index)();
+    getWasmTableEntry(index)(a1,a2);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_vif(index,a1,a2) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2);
   } catch(e) {
     stackRestore(sp);
     if (!(e instanceof EmscriptenEH)) throw e;
@@ -8289,17 +8346,6 @@ function invoke_d(index) {
   }
 }
 
-function invoke_vii(index,a1,a2) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2);
-  } catch(e) {
-    stackRestore(sp);
-    if (!(e instanceof EmscriptenEH)) throw e;
-    _setThrew(1, 0);
-  }
-}
-
 function invoke_iiiiii(index,a1,a2,a3,a4,a5) {
   var sp = stackSave();
   try {
@@ -8315,6 +8361,61 @@ function invoke_iiiii(index,a1,a2,a3,a4) {
   var sp = stackSave();
   try {
     return getWasmTableEntry(index)(a1,a2,a3,a4);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viif(index,a1,a2,a3) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viifi(index,a1,a2,a3,a4) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3,a4);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_iiif(index,a1,a2,a3) {
+  var sp = stackSave();
+  try {
+    return getWasmTableEntry(index)(a1,a2,a3);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viiif(index,a1,a2,a3,a4) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3,a4);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viifif(index,a1,a2,a3,a4,a5) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3,a4,a5);
   } catch(e) {
     stackRestore(sp);
     if (!(e instanceof EmscriptenEH)) throw e;
@@ -8443,32 +8544,10 @@ function invoke_viff(index,a1,a2,a3) {
   }
 }
 
-function invoke_vif(index,a1,a2) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2);
-  } catch(e) {
-    stackRestore(sp);
-    if (!(e instanceof EmscriptenEH)) throw e;
-    _setThrew(1, 0);
-  }
-}
-
 function invoke_viffiififii(index,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10) {
   var sp = stackSave();
   try {
     getWasmTableEntry(index)(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10);
-  } catch(e) {
-    stackRestore(sp);
-    if (!(e instanceof EmscriptenEH)) throw e;
-    _setThrew(1, 0);
-  }
-}
-
-function invoke_viif(index,a1,a2,a3) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2,a3);
   } catch(e) {
     stackRestore(sp);
     if (!(e instanceof EmscriptenEH)) throw e;
@@ -8612,17 +8691,6 @@ function invoke_viiifii(index,a1,a2,a3,a4,a5,a6) {
   var sp = stackSave();
   try {
     getWasmTableEntry(index)(a1,a2,a3,a4,a5,a6);
-  } catch(e) {
-    stackRestore(sp);
-    if (!(e instanceof EmscriptenEH)) throw e;
-    _setThrew(1, 0);
-  }
-}
-
-function invoke_viifi(index,a1,a2,a3,a4) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2,a3,a4);
   } catch(e) {
     stackRestore(sp);
     if (!(e instanceof EmscriptenEH)) throw e;
@@ -8982,6 +9050,28 @@ function invoke_viiiiiiiiiiiiiii(index,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a1
   }
 }
 
+function invoke_viifj(index,a1,a2,a3,a4,a5) {
+  var sp = stackSave();
+  try {
+    dynCall_viifj(index,a1,a2,a3,a4,a5);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_j(index) {
+  var sp = stackSave();
+  try {
+    return dynCall_j(index);
+  } catch(e) {
+    stackRestore(sp);
+    if (!(e instanceof EmscriptenEH)) throw e;
+    _setThrew(1, 0);
+  }
+}
+
 function invoke_iij(index,a1,a2,a3) {
   var sp = stackSave();
   try {
@@ -9063,17 +9153,6 @@ function invoke_viijii(index,a1,a2,a3,a4,a5,a6) {
   var sp = stackSave();
   try {
     dynCall_viijii(index,a1,a2,a3,a4,a5,a6);
-  } catch(e) {
-    stackRestore(sp);
-    if (!(e instanceof EmscriptenEH)) throw e;
-    _setThrew(1, 0);
-  }
-}
-
-function invoke_j(index) {
-  var sp = stackSave();
-  try {
-    return dynCall_j(index);
   } catch(e) {
     stackRestore(sp);
     if (!(e instanceof EmscriptenEH)) throw e;

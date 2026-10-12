@@ -1,5 +1,3 @@
-
-
 var Module = typeof Module != 'undefined' ? Module : {};
 
   if (!Module.expectedDataFileDownloads) {

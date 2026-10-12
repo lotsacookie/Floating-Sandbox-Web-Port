@@ -587,23 +587,36 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
-  5373840: () => { if (window.FSAudio) { FSAudio.loop('tool', '', 0, 0); } },
- 5373900: ($0, $1) => { if (window.FSAudio) { FSAudio.loop('tool', UTF8ToString($0), $1, 0.7); } },
- 5373977: ($0) => { if (Module.onGameError) { Module.onGameError(UTF8ToString($0)); } },
- 5374047: ($0) => { if (Module.onGameProgress) { Module.onGameProgress($0); } },
- 5374109: ($0, $1, $2, $3, $4) => { if (window.FSAudio) { FSAudio.playMaterial(UTF8ToString($0), UTF8ToString($1), $2, $3, $4); } },
- 5374207: ($0, $1) => { if (window.FSAudio) { FSAudio.playBase(UTF8ToString($0), $1); } },
- 5374275: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, $2); } },
- 5374353: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobeattached', $0, 1.0); } },
- 5374438: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombattached', $0, 1.0); } },
- 5374515: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobedetached', $0, 1.0); } },
- 5374600: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombdetached', $0, 1.0); } },
- 5374677: ($0, $1) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, 1.0); } },
- 5374756: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('rcbombping', $0, 0.7); } },
- 5374831: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('combustionexplosion', $0, 1.0); } },
- 5374915: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 1, 0.5); } },
- 5374982: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 0, 0); } },
- 5375047: () => { if (Module.onGameReady) { Module.onGameReady(); } }
+  5387856: ($0, $1) => { if (window.FSAudio) { FSAudio.playMaterial('break', 'glass', $0, $1, 0.8); } },
+ 5387937: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('lampexplosion', $0, 1.0); } },
+ 5388015: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('lampimplosion', $0, 1.0); } },
+ 5388093: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater($2 ? 'lightflicker_long' : 'lightflicker_short', $0, 0.7); } },
+ 5388203: () => { if (window.FSAudio) { FSAudio.stopGroup('eng_'); FSAudio.stopGroup('ship_'); } },
+ 5388286: ($0, $1, $2, $3, $4, $5) => { if (window.FSPanel) { FSPanel.event(UTF8ToString($0), UTF8ToString($1), UTF8ToString($2), $3, $4, $5); } },
+ 5388395: ($0, $1) => { if (window.FSAudio) { FSAudio.playBase(UTF8ToString($0), $1); } },
+ 5388463: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.engine('eng_' + UTF8ToString($0), UTF8ToString($1), $2); } },
+ 5388556: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.shipSound(UTF8ToString($0), UTF8ToString($1), $2); } },
+ 5388643: () => { if (window.FSAudio) { FSAudio.loop('tool', '', 0, 0); } },
+ 5388703: ($0, $1) => { if (window.FSAudio) { FSAudio.loop('tool', UTF8ToString($0), $1, 0.7); } },
+ 5388780: ($0) => { if (Module.onGameError) { Module.onGameError(UTF8ToString($0)); } },
+ 5388850: ($0) => { if (Module.onGameProgress) { Module.onGameProgress($0); } },
+ 5388912: ($0, $1, $2, $3, $4) => { if (window.FSAudio) { FSAudio.playMaterial(UTF8ToString($0), UTF8ToString($1), $2, $3, $4); } },
+ 5389010: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, $2); } },
+ 5389088: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobeattached', $0, 1.0); } },
+ 5389173: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombattached', $0, 1.0); } },
+ 5389250: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobedetached', $0, 1.0); } },
+ 5389335: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombdetached', $0, 1.0); } },
+ 5389412: ($0, $1) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, 1.0); } },
+ 5389491: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('rcbombping', $0, 0.7); } },
+ 5389566: ($0, $1, $2, $3, $4, $5) => { if (window.FSPanel) { FSPanel.probe($0, $1, $2, $3, $4, $5); } },
+ 5389633: () => { if (window.FSPanel) { FSPanel.probeVisible(1); } },
+ 5389686: () => { if (window.FSPanel) { FSPanel.probeVisible(0); } },
+ 5389739: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('combustionexplosion', $0, 1.0); } },
+ 5389823: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 1, 0.5); } },
+ 5389890: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 0, 0); } },
+ 5389955: () => { if (window.FSAudio) { FSAudio.loop('wind', 'wind', 1, 0.6); } },
+ 5390021: () => { if (window.FSAudio) { FSAudio.loop('wind', '', 0, 0); } },
+ 5390081: () => { if (Module.onGameReady) { Module.onGameReady(); } }
 };
 
   function ExitStatus(status) {
@@ -6588,6 +6601,8 @@ var wasmImports = {
 
   invoke_iiiiij: invoke_iiiiij,
 
+  invoke_iiijf: invoke_iiijf,
+
   invoke_iij: invoke_iij,
 
   invoke_iiji: invoke_iiji,
@@ -6604,7 +6619,11 @@ var wasmImports = {
 
   invoke_v: invoke_v,
 
+  invoke_vd: invoke_vd,
+
   invoke_vi: invoke_vi,
+
+  invoke_vid: invoke_vid,
 
   invoke_vif: invoke_vif,
 
@@ -6633,6 +6652,8 @@ var wasmImports = {
   invoke_vii: invoke_vii,
 
   invoke_viif: invoke_viif,
+
+  invoke_viiffff: invoke_viiffff,
 
   invoke_viiffi: invoke_viiffi,
 
@@ -6697,6 +6718,13 @@ var wasmImports = {
 var wasmExports = createWasm();
 var ___wasm_call_ctors = () => (___wasm_call_ctors = wasmExports['__wasm_call_ctors'])();
 var _fs_load_ship = Module['_fs_load_ship'] = (a0) => (_fs_load_ship = Module['_fs_load_ship'] = wasmExports['fs_load_ship'])(a0);
+var _fs_settings_json = Module['_fs_settings_json'] = () => (_fs_settings_json = Module['_fs_settings_json'] = wasmExports['fs_settings_json'])();
+var _fs_set_setting = Module['_fs_set_setting'] = (a0, a1) => (_fs_set_setting = Module['_fs_set_setting'] = wasmExports['fs_set_setting'])(a0, a1);
+var _fs_set_switch = Module['_fs_set_switch'] = (a0, a1, a2) => (_fs_set_switch = Module['_fs_set_switch'] = wasmExports['fs_set_switch'])(a0, a1, a2);
+var _fs_set_engine = Module['_fs_set_engine'] = (a0, a1, a2) => (_fs_set_engine = Module['_fs_set_engine'] = wasmExports['fs_set_engine'])(a0, a1, a2);
+var _fs_add_npc_group = Module['_fs_add_npc_group'] = (a0) => (_fs_add_npc_group = Module['_fs_add_npc_group'] = wasmExports['fs_add_npc_group'])(a0);
+var _fs_select_next_npc = Module['_fs_select_next_npc'] = () => (_fs_select_next_npc = Module['_fs_select_next_npc'] = wasmExports['fs_select_next_npc'])();
+var _fs_trigger = Module['_fs_trigger'] = (a0) => (_fs_trigger = Module['_fs_trigger'] = wasmExports['fs_trigger'])(a0);
 var _fs_set_tool = Module['_fs_set_tool'] = (a0) => (_fs_set_tool = Module['_fs_set_tool'] = wasmExports['fs_set_tool'])(a0);
 var _fs_set_paused = Module['_fs_set_paused'] = (a0) => (_fs_set_paused = Module['_fs_set_paused'] = wasmExports['fs_set_paused'])(a0);
 var _fs_is_paused = Module['_fs_is_paused'] = () => (_fs_is_paused = Module['_fs_is_paused'] = wasmExports['fs_is_paused'])();
@@ -6798,28 +6826,6 @@ function invoke_iii(index,a1,a2) {
   }
 }
 
-function invoke_vii(index,a1,a2) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2);
-  } catch(e) {
-    stackRestore(sp);
-    if (e !== e+0) throw e;
-    _setThrew(1, 0);
-  }
-}
-
-function invoke_vif(index,a1,a2) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2);
-  } catch(e) {
-    stackRestore(sp);
-    if (e !== e+0) throw e;
-    _setThrew(1, 0);
-  }
-}
-
 function invoke_vi(index,a1) {
   var sp = stackSave();
   try {
@@ -6835,6 +6841,61 @@ function invoke_ii(index,a1) {
   var sp = stackSave();
   try {
     return getWasmTableEntry(index)(a1);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_vii(index,a1,a2) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_dii(index,a1,a2) {
+  var sp = stackSave();
+  try {
+    return getWasmTableEntry(index)(a1,a2);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_vid(index,a1,a2) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viif(index,a1,a2,a3) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_vif(index,a1,a2) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2);
   } catch(e) {
     stackRestore(sp);
     if (e !== e+0) throw e;
@@ -6875,10 +6936,54 @@ function invoke_iiiii(index,a1,a2,a3,a4) {
   }
 }
 
-function invoke_viif(index,a1,a2,a3) {
+function invoke_viiiiii(index,a1,a2,a3,a4,a5,a6) {
   var sp = stackSave();
   try {
-    getWasmTableEntry(index)(a1,a2,a3);
+    getWasmTableEntry(index)(a1,a2,a3,a4,a5,a6);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viiiii(index,a1,a2,a3,a4,a5) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3,a4,a5);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viiffff(index,a1,a2,a3,a4,a5,a6) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3,a4,a5,a6);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_vd(index,a1) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_viiiff(index,a1,a2,a3,a4,a5) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1,a2,a3,a4,a5);
   } catch(e) {
     stackRestore(sp);
     if (e !== e+0) throw e;
@@ -6919,10 +7024,10 @@ function invoke_viiif(index,a1,a2,a3,a4) {
   }
 }
 
-function invoke_viifif(index,a1,a2,a3,a4,a5) {
+function invoke_i(index) {
   var sp = stackSave();
   try {
-    getWasmTableEntry(index)(a1,a2,a3,a4,a5);
+    return getWasmTableEntry(index)();
   } catch(e) {
     stackRestore(sp);
     if (e !== e+0) throw e;
@@ -6930,7 +7035,7 @@ function invoke_viifif(index,a1,a2,a3,a4,a5) {
   }
 }
 
-function invoke_viiiii(index,a1,a2,a3,a4,a5) {
+function invoke_viifif(index,a1,a2,a3,a4,a5) {
   var sp = stackSave();
   try {
     getWasmTableEntry(index)(a1,a2,a3,a4,a5);
@@ -6989,17 +7094,6 @@ function invoke_fff(index,a1,a2) {
   var sp = stackSave();
   try {
     return getWasmTableEntry(index)(a1,a2);
-  } catch(e) {
-    stackRestore(sp);
-    if (e !== e+0) throw e;
-    _setThrew(1, 0);
-  }
-}
-
-function invoke_viiiff(index,a1,a2,a3,a4,a5) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2,a3,a4,a5);
   } catch(e) {
     stackRestore(sp);
     if (e !== e+0) throw e;
@@ -7073,17 +7167,6 @@ function invoke_iiffiiiii(index,a1,a2,a3,a4,a5,a6,a7,a8) {
   }
 }
 
-function invoke_viiiiii(index,a1,a2,a3,a4,a5,a6) {
-  var sp = stackSave();
-  try {
-    getWasmTableEntry(index)(a1,a2,a3,a4,a5,a6);
-  } catch(e) {
-    stackRestore(sp);
-    if (e !== e+0) throw e;
-    _setThrew(1, 0);
-  }
-}
-
 function invoke_iiiiff(index,a1,a2,a3,a4,a5) {
   var sp = stackSave();
   try {
@@ -7128,17 +7211,6 @@ function invoke_viiiiiiiiii(index,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10) {
   }
 }
 
-function invoke_dii(index,a1,a2) {
-  var sp = stackSave();
-  try {
-    return getWasmTableEntry(index)(a1,a2);
-  } catch(e) {
-    stackRestore(sp);
-    if (e !== e+0) throw e;
-    _setThrew(1, 0);
-  }
-}
-
 function invoke_diii(index,a1,a2,a3) {
   var sp = stackSave();
   try {
@@ -7154,17 +7226,6 @@ function invoke_viiiiiiiii(index,a1,a2,a3,a4,a5,a6,a7,a8,a9) {
   var sp = stackSave();
   try {
     getWasmTableEntry(index)(a1,a2,a3,a4,a5,a6,a7,a8,a9);
-  } catch(e) {
-    stackRestore(sp);
-    if (e !== e+0) throw e;
-    _setThrew(1, 0);
-  }
-}
-
-function invoke_i(index) {
-  var sp = stackSave();
-  try {
-    return getWasmTableEntry(index)();
   } catch(e) {
     stackRestore(sp);
     if (e !== e+0) throw e;
@@ -7561,6 +7622,17 @@ function invoke_viiiiiiiiiiiiiii(index,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a1
   var sp = stackSave();
   try {
     getWasmTableEntry(index)(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+
+function invoke_iiijf(index,a1,a2,a3,a4,a5) {
+  var sp = stackSave();
+  try {
+    return dynCall_iiijf(index,a1,a2,a3,a4,a5);
   } catch(e) {
     stackRestore(sp);
     if (e !== e+0) throw e;

@@ -464,36 +464,36 @@ function createWasm() {
 var tempDouble;
 var tempI64;
 var ASM_CONSTS = {
-  5387856: ($0, $1) => { if (window.FSAudio) { FSAudio.playMaterial('break', 'glass', $0, $1, 0.8); } },
- 5387937: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('lampexplosion', $0, 1.0); } },
- 5388015: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('lampimplosion', $0, 1.0); } },
- 5388093: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater($2 ? 'lightflicker_long' : 'lightflicker_short', $0, 0.7); } },
- 5388203: () => { if (window.FSAudio) { FSAudio.stopGroup('eng_'); FSAudio.stopGroup('ship_'); } },
- 5388286: ($0, $1, $2, $3, $4, $5) => { if (window.FSPanel) { FSPanel.event(UTF8ToString($0), UTF8ToString($1), UTF8ToString($2), $3, $4, $5); } },
- 5388395: ($0, $1) => { if (window.FSAudio) { FSAudio.playBase(UTF8ToString($0), $1); } },
- 5388463: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.engine('eng_' + UTF8ToString($0), UTF8ToString($1), $2); } },
- 5388556: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.shipSound(UTF8ToString($0), UTF8ToString($1), $2); } },
- 5388643: () => { if (window.FSAudio) { FSAudio.loop('tool', '', 0, 0); } },
- 5388703: ($0, $1) => { if (window.FSAudio) { FSAudio.loop('tool', UTF8ToString($0), $1, 0.7); } },
- 5388780: ($0) => { if (Module.onGameError) { Module.onGameError(UTF8ToString($0)); } },
- 5388850: ($0) => { if (Module.onGameProgress) { Module.onGameProgress($0); } },
- 5388912: ($0, $1, $2, $3, $4) => { if (window.FSAudio) { FSAudio.playMaterial(UTF8ToString($0), UTF8ToString($1), $2, $3, $4); } },
- 5389010: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, $2); } },
- 5389088: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobeattached', $0, 1.0); } },
- 5389173: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombattached', $0, 1.0); } },
- 5389250: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobedetached', $0, 1.0); } },
- 5389335: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombdetached', $0, 1.0); } },
- 5389412: ($0, $1) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, 1.0); } },
- 5389491: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('rcbombping', $0, 0.7); } },
- 5389566: ($0, $1, $2, $3, $4, $5) => { if (window.FSPanel) { FSPanel.probe($0, $1, $2, $3, $4, $5); } },
- 5389633: () => { if (window.FSPanel) { FSPanel.probeVisible(1); } },
- 5389686: () => { if (window.FSPanel) { FSPanel.probeVisible(0); } },
- 5389739: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('combustionexplosion', $0, 1.0); } },
- 5389823: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 1, 0.5); } },
- 5389890: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 0, 0); } },
- 5389955: () => { if (window.FSAudio) { FSAudio.loop('wind', 'wind', 1, 0.6); } },
- 5390021: () => { if (window.FSAudio) { FSAudio.loop('wind', '', 0, 0); } },
- 5390081: () => { if (Module.onGameReady) { Module.onGameReady(); } }
+  5387872: ($0, $1) => { if (window.FSAudio) { FSAudio.playMaterial('break', 'glass', $0, $1, 0.8); } },
+ 5387953: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('lampexplosion', $0, 1.0); } },
+ 5388031: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('lampimplosion', $0, 1.0); } },
+ 5388109: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater($2 ? 'lightflicker_long' : 'lightflicker_short', $0, 0.7); } },
+ 5388219: () => { if (window.FSAudio) { FSAudio.stopGroup('eng_'); FSAudio.stopGroup('ship_'); } },
+ 5388302: ($0, $1, $2, $3, $4, $5) => { if (window.FSPanel) { FSPanel.event(UTF8ToString($0), UTF8ToString($1), UTF8ToString($2), $3, $4, $5); } },
+ 5388411: ($0, $1) => { if (window.FSAudio) { FSAudio.playBase(UTF8ToString($0), $1); } },
+ 5388479: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.engine('eng_' + UTF8ToString($0), UTF8ToString($1), $2); } },
+ 5388572: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.shipSound(UTF8ToString($0), UTF8ToString($1), $2); } },
+ 5388659: () => { if (window.FSAudio) { FSAudio.loop('tool', '', 0, 0); } },
+ 5388719: ($0, $1) => { if (window.FSAudio) { FSAudio.loop('tool', UTF8ToString($0), $1, 0.7); } },
+ 5388796: ($0) => { if (Module.onGameError) { Module.onGameError(UTF8ToString($0)); } },
+ 5388866: ($0) => { if (Module.onGameProgress) { Module.onGameProgress($0); } },
+ 5388928: ($0, $1, $2, $3, $4) => { if (window.FSAudio) { FSAudio.playMaterial(UTF8ToString($0), UTF8ToString($1), $2, $3, $4); } },
+ 5389026: ($0, $1, $2) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, $2); } },
+ 5389104: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobeattached', $0, 1.0); } },
+ 5389189: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombattached', $0, 1.0); } },
+ 5389266: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('physicsprobedetached', $0, 1.0); } },
+ 5389351: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('bombdetached', $0, 1.0); } },
+ 5389428: ($0, $1) => { if (window.FSAudio) { FSAudio.playUnderwater(UTF8ToString($0), $1, 1.0); } },
+ 5389507: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('rcbombping', $0, 0.7); } },
+ 5389582: ($0, $1, $2, $3, $4, $5) => { if (window.FSPanel) { FSPanel.probe($0, $1, $2, $3, $4, $5); } },
+ 5389649: () => { if (window.FSPanel) { FSPanel.probeVisible(1); } },
+ 5389702: () => { if (window.FSPanel) { FSPanel.probeVisible(0); } },
+ 5389755: ($0) => { if (window.FSAudio) { FSAudio.playUnderwater('combustionexplosion', $0, 1.0); } },
+ 5389839: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 1, 0.5); } },
+ 5389906: () => { if (window.FSAudio) { FSAudio.loop('storm', 'rain', 0, 0); } },
+ 5389971: () => { if (window.FSAudio) { FSAudio.loop('wind', 'wind', 1, 0.6); } },
+ 5390037: () => { if (window.FSAudio) { FSAudio.loop('wind', '', 0, 0); } },
+ 5390097: () => { if (Module.onGameReady) { Module.onGameReady(); } }
 };
   function ExitStatus(status) {
       this.name = 'ExitStatus';
@@ -5618,6 +5618,7 @@ var wasmImports = {
   invoke_jiiii: invoke_jiiii,
   invoke_v: invoke_v,
   invoke_vd: invoke_vd,
+  invoke_vf: invoke_vf,
   invoke_vi: invoke_vi,
   invoke_vid: invoke_vid,
   invoke_vif: invoke_vif,
@@ -5681,6 +5682,8 @@ var _fs_set_paused = Module['_fs_set_paused'] = (a0) => (_fs_set_paused = Module
 var _fs_is_paused = Module['_fs_is_paused'] = () => (_fs_is_paused = Module['_fs_is_paused'] = wasmExports['fs_is_paused'])();
 var _fs_step = Module['_fs_step'] = () => (_fs_step = Module['_fs_step'] = wasmExports['fs_step'])();
 var _fs_zoom = Module['_fs_zoom'] = (a0) => (_fs_zoom = Module['_fs_zoom'] = wasmExports['fs_zoom'])(a0);
+var _fs_set_perf_mode = Module['_fs_set_perf_mode'] = (a0) => (_fs_set_perf_mode = Module['_fs_set_perf_mode'] = wasmExports['fs_set_perf_mode'])(a0);
+var _fs_perf_mode = Module['_fs_perf_mode'] = () => (_fs_perf_mode = Module['_fs_perf_mode'] = wasmExports['fs_perf_mode'])();
 var _fs_reset_view = Module['_fs_reset_view'] = () => (_fs_reset_view = Module['_fs_reset_view'] = wasmExports['fs_reset_view'])();
 var _fs_focus_on_ships = Module['_fs_focus_on_ships'] = () => (_fs_focus_on_ships = Module['_fs_focus_on_ships'] = wasmExports['fs_focus_on_ships'])();
 var _fs_toggle_day_night = Module['_fs_toggle_day_night'] = () => (_fs_toggle_day_night = Module['_fs_toggle_day_night'] = wasmExports['fs_toggle_day_night'])();
@@ -5945,6 +5948,16 @@ function invoke_viiif(index,a1,a2,a3,a4) {
   var sp = stackSave();
   try {
     getWasmTableEntry(index)(a1,a2,a3,a4);
+  } catch(e) {
+    stackRestore(sp);
+    if (e !== e+0) throw e;
+    _setThrew(1, 0);
+  }
+}
+function invoke_vf(index,a1) {
+  var sp = stackSave();
+  try {
+    getWasmTableEntry(index)(a1);
   } catch(e) {
     stackRestore(sp);
     if (e !== e+0) throw e;
